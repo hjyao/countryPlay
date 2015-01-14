@@ -15,6 +15,8 @@ if [ ! -e "dist/freewheelers.zip" ]; then
   exit -1
 fi;
 
+type -p java > /dev/null || (echo "java not found" && exit -1)
+
 scp dist/freewheelers.zip ${USER}@${HOST}:/tmp
 
 ssh ${USER}@${HOST} /bin/bash << EOF
